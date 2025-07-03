@@ -1,10 +1,3 @@
-//
-//  ContentView.swift
-//  Instagram
-//
-//  Created by John Kim on 7/2/25.
-//
-
 import SwiftUI
 
 struct ContentView: View {

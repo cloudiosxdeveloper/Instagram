@@ -1,10 +1,3 @@
-//
-//  MainTabView.swift
-//  Instagram
-//
-//  Created by John Kim on 7/2/25.
-//
-
 import SwiftUI
 
 struct MainTabView: View {
@@ -30,7 +23,7 @@ struct MainTabView: View {
                     Image(systemName: "heart")
                 }
             
-            Text("Profile")
+            ProfileView()
                 .tabItem {
                     Image(systemName: "person")
                 }
