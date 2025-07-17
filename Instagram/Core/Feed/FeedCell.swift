@@ -17,7 +17,7 @@ struct FeedCell: View {
                     
                 Spacer()
             }
-            .padding(.leading, 8)
+                .padding(.leading, 8)
             
             // post image
             Image("feed-2")
@@ -52,9 +52,9 @@ struct FeedCell: View {
                 
                 Spacer()
             }
-            .padding(.leading, 8)
-            .padding(.top, 4)
-            .foregroundStyle(.black)
+                .padding(.leading, 8)
+                .padding(.top, 4)
+                .foregroundStyle(.black)
             
             // likes label
             Text("23 likes")
@@ -69,10 +69,10 @@ struct FeedCell: View {
                 Text("ryan ").fontWeight(.semibold) +
                 Text("Having a blast spending time with my friends and family!")
             }
-            .font(.footnote)
-            .frame(maxWidth: .infinity, alignment: .leading)
-            .padding(.leading, 10)
-            .padding(.top, 1)
+                .font(.footnote)
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .padding(.leading, 10)
+                .padding(.top, 1)
             
             // timestamp label
             Text("3h ago")
