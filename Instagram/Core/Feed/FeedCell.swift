@@ -1,31 +1,34 @@
 import SwiftUI
 
 struct FeedCell: View {
+    let post: Post
+    
     var body: some View {
         VStack {
             // image + username
             HStack {
-                Image("feed-1")
-                    .resizable()
-                    .scaledToFill()
-                    .frame(width: 40, height: 40)
-                    .clipShape(Circle())
-                
-                Text("ryan123")
-                    .font(.footnote)
-                    .fontWeight(.semibold)
+                if let user = post.user {
+                    Image(user.profileImageUrl ?? "")
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: 40, height: 40)
+                        .clipShape(Circle())
+                    
+                    Text(user.username)
+                        .font(.footnote)
+                        .fontWeight(.semibold)
+                }
                     
                 Spacer()
             }
-                .padding(.leading, 8)
+            .padding(.leading, 8)
             
             // post image
-            Image("feed-2")
+            Image(post.imageUrl)
                 .resizable()
                 .scaledToFill()
                 .frame(height: 400)
                 .clipShape(Rectangle())
-                
             
             // action buttons
             HStack(spacing: 16) {
@@ -44,7 +47,7 @@ struct FeedCell: View {
                 }
                 
                 Button {
-                    print("Like post")
+                    print("Share post")
                 } label: {
                     Image(systemName: "paperplane")
                         .imageScale(.large)
@@ -57,7 +60,7 @@ struct FeedCell: View {
                 .foregroundStyle(.black)
             
             // likes label
-            Text("23 likes")
+            Text("\(post.likes) likes")
                 .font(.footnote)
                 .fontWeight(.semibold)
                 .frame(maxWidth: .infinity, alignment: .leading)
@@ -66,8 +69,8 @@ struct FeedCell: View {
             
             // caption label
             HStack {
-                Text("ryan ").fontWeight(.semibold) +
-                Text("Having a blast spending time with my friends and family!")
+                Text("\(post.user?.username ?? "") ").fontWeight(.semibold) +
+                Text(post.caption)
             }
                 .font(.footnote)
                 .frame(maxWidth: .infinity, alignment: .leading)
@@ -86,5 +89,5 @@ struct FeedCell: View {
 }
 
 #Preview {
-    FeedCell()
+    FeedCell(post: Post.MOCK_POSTS[0])
 }
